@@ -1,24 +1,25 @@
 {
-  "name": "dot-prop",
+  "name": "dot-prop-es-5",
   "version": "4.1.1",
-  "description": "Get, set, or delete a property from a nested object using a dot path",
+  "description": "dot-prop transpiled to es5",
   "license": "MIT",
-  "repository": "sindresorhus/dot-prop",
+  "repository": "tobiaswalle/dot-prop-es-5",
   "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
+    "name": "Tobias Walle"
   },
   "engines": {
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo && ava",
-    "bench": "matcha bench.js"
+    "test": "npm run build && xo && ava",
+    "bench": "npm run build && matcha dist/bench.js",
+    "build": "babel src --out-dir dist",
+    "prepublish": "npm run build"
   },
   "files": [
-    "index.js"
+    "dist/index.js"
   ],
+  "main": "dist/index.js",
   "keywords": [
     "obj",
     "object",
@@ -39,6 +40,9 @@
   },
   "devDependencies": {
     "ava": "*",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.4.0",
     "matcha": "^0.7.0",
     "xo": "*"
   },

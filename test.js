@@ -1,5 +1,5 @@
 import test from 'ava';
-import m from './';
+import m from './dist';
 
 test('get', t => {
 	const f1 = {foo: {bar: 1}};
